@@ -10,6 +10,7 @@ var playerGuess;
 var playerRandomNumber;
 var playerTotalScore = 0;
 var playerScore;
+var score;
 var scoreCounter;
 var randomNumberMatch;
 var myarr = [];
@@ -40,10 +41,7 @@ playerGuess = function (min, max) {
 }
 console.log("PlayerGuess	:" + playerGuess());
 
-
-
-//DOM
-//================================================
+function game(){
 
 console.log(playerScore);
 $("#randNum").html("Random Number  :" + playerGuess());
@@ -54,21 +52,27 @@ $( ".im" ).click(function() {
 	console.log(myarr);
 	playerTotalScore = myarr.reduce(function(accumulator, currentValue) {
     return accumulator + currentValue;});
-	
+	score = playerTotalScore;
 	console.log ("playerTotalScore  "+ playerTotalScore)
-$(".als2").html("Total Score  :" + playerTotalScore + "  Loses:  " + loses);
-if (playerTotalScore > playerGuess){
-Alert("Game Over")
-loses +=1
-location.reload();
-}
-else if(playerTotalScore === playerGuess) {
-Alert("You Win")
-location.reload();
+$(".als2").html("Total Score  :" + playerTotalScore + "   Score  : " + score + "  Loses:  " + loses);
+
+
+if(playerTotalScore>119){
+loses+=1;
+score=0;
 }
 });
+
+
+}
+
+//DOM
+//================================================
+
+
 	
 
+game();
 $("#randNum").html("Random Number  :" + playerGuess());
 
 
